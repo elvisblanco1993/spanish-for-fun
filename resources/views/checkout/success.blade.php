@@ -13,6 +13,6 @@
         </svg>
         <h1 class="mt-4 text-orange-500">{{ __("We have received your request and are working on it.") }}</h1>
         <p>{{ __("If you have any questions regarding this request, you can select it and add a comment to it.") }}</p>
-        <a href="" class="block mt-6">{{ __("See all my requests") }}</a>
+        <a wire:navigate href="{{ route('request.index') }}" class="block mt-6">{{ __("See all my requests") }}</a>
     </main>
 </x-app-layout>
