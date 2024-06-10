@@ -6,10 +6,12 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\WebsiteController;
 use App\Livewire\Billing\SelectPlan;
 
-Route::get('/', [WebsiteController::class, 'home'])->name('website.home');
-Route::get('/contact', [WebsiteController::class, 'contact'])->name('website.contact');
-Route::get('/services', [WebsiteController::class, 'services'])->name('website.services');
-Route::get('/about', [WebsiteController::class, 'about'])->name('website.about');
+Route::get('/', function () { return redirect()->route('register'); })->name('website.home');
+
+// Route::get('/', [WebsiteController::class, 'home'])->name('website.home');
+// Route::get('/contact', [WebsiteController::class, 'contact'])->name('website.contact');
+// Route::get('/services', [WebsiteController::class, 'services'])->name('website.services');
+// Route::get('/about', [WebsiteController::class, 'about'])->name('website.about');
 
 Route::middleware([
     'auth:sanctum',
