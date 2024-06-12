@@ -1,12 +1,19 @@
 <?php
 
-use App\Http\Controllers\BillingController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CheckoutController;
-use App\Http\Controllers\WebsiteController;
 use App\Livewire\Billing\SelectPlan;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BillingController;
+use App\Http\Controllers\WebsiteController;
+use App\Http\Controllers\CheckoutController;
 
-Route::get('/', function () { return redirect()->route('register'); })->name('website.home');
+Route::get('/', function () {
+    if (Auth::check()) {
+        return redirect()->route('request.index');
+    } else {
+        return redirect()->route('register');
+    }
+})->name('website.home');
 
 // Route::get('/', [WebsiteController::class, 'home'])->name('website.home');
 // Route::get('/contact', [WebsiteController::class, 'contact'])->name('website.contact');
