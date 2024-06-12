@@ -13,7 +13,7 @@
                 @else
                     <span class="whitespace-nowrap bg-green-100 text-green-900 rounded-lg text-xs uppercase font-medium px-2 py-1">{{ __("Completed") }}</span>
                 @endif
-                @if (!Auth::user()->is_client)
+                @if (!Auth::user()->is_client && $request->paid_at)
                     @livewire('request.solve', ['request' => $request])
                 @endif
             </div>
@@ -42,7 +42,7 @@
         <div class="mt-6">
             {{-- Comments here --}}
             @livewire('comment.index', ['request' => $request])
-            @if (!$request->completed_at)
+            @if (!$request->completed_at || !$request->paid_at)
                 @livewire('comment.create', ['request' => $request])
             @endif
         </div>
