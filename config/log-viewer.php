@@ -16,6 +16,8 @@ return [
 
     'require_auth_in_production' => true,
 
+    'user' => env('LOGVIEWER_USER_EMAIL'),
+
     /*
     |--------------------------------------------------------------------------
     | Log Viewer Domain
