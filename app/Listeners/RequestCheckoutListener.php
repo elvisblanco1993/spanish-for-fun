@@ -7,9 +7,6 @@ use App\Models\Request;
 use App\Models\Scopes\RequestScope;
 use App\Notifications\RequestReceived;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Notification;
 use Laravel\Cashier\Events\WebhookReceived;
 
