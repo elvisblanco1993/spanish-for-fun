@@ -51,7 +51,7 @@
                     {{ __('Already registered?') }}
                 </a>
 
-                <x-button class="ms-4">
+                <x-button class="ms-4 g-recaptcha" data-sitekey="{{config('services.recaptcha_v3.siteKey')}}" data-callback='onSubmit'>
                     {{ __('Register') }}
                 </x-button>
             </div>

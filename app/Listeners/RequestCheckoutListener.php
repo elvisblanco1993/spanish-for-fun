@@ -31,14 +31,6 @@ class RequestCheckoutListener
                 $app_purchase_id = $data['metadata']['app_purchase_id'];
                 $payment_intent = $data['payment_intent'];
 
-                Log::info('Payment details', [
-                    'payment_status' => $payment_status,
-                    'transaction_status' => $transaction_status,
-                    'app_purchase_type' => $app_purchase_type,
-                    'app_purchase_id' => $app_purchase_id,
-                    'payment_intent' => $payment_intent
-                ]);
-
                 if ($app_purchase_type == 'request' && $payment_status == 'paid' && $transaction_status == 'complete') {
                     $request = Request::withoutGlobalScope(RequestScope::class)->findOrFail($app_purchase_id);
                     $request->update([
