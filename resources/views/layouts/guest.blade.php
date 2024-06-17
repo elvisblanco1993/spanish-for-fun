@@ -18,12 +18,7 @@
         @livewireStyles
 
         @if (request()->routeIs('register'))
-            <script src="https://www.google.com/recaptcha/api.js"></script>
-            <script>
-                function onSubmit(token) {
-                    document.getElementById("registration-form").submit();
-                }
-            </script>
+            <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>
         @endif
     </head>
     <body class="bg-[#fff2dd] text-[#ec482e] selection:bg-orange-200">
@@ -32,5 +27,6 @@
         </div>
 
         @livewireScripts
+        @stack('scripts')
     </body>
 </html>
